@@ -26,6 +26,7 @@ import com.google.android.gms.wearable.PutDataRequest;
 import com.google.android.gms.wearable.Wearable;
 
 import java.io.ByteArrayOutputStream;
+import java.util.Date;
 import java.util.Set;
 
 
@@ -266,25 +267,16 @@ public class MainActivity extends Activity implements
     private void sendAsset() {
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.i_am);
         Asset asset = createAssetFromBitmap(bitmap);
-        PutDataRequest request = PutDataRequest.create("/image");
-        request.putAsset("profileImage", asset);
-        Wearable.DataApi.putDataItem(googleClient, request).setResultCallback(
-                new ResultCallback() {
-                    @Override
-                    public void onResult(Result result) {
-                        if (!result.getStatus().isSuccess()) {
-                            // Failed to send message
-                            Log.e("ERROR_RES", "ffsfs");
-                        }else {
-                            Log.e("RES", "ffsfs");
-                        }
-                    }
-                });
+        PutDataMapRequest request = PutDataMapRequest.create("/image");
+        DataMap map = request.getDataMap();
+        map.putLong("time", new Date().getTime());
+        map.putAsset("profileImage", asset);
+        Wearable.DataApi.putDataItem(googleClient, request.asPutDataRequest());
     }
 
     private static Asset createAssetFromBitmap(Bitmap bitmap) {
         final ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteStream);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteStream);
         return Asset.createFromBytes(byteStream.toByteArray());
     }
 }

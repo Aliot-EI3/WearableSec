@@ -56,7 +56,8 @@ public class ListenerService extends WearableListenerService {
                     DataMapItem dataMapItem = DataMapItem.fromDataItem(event.getDataItem());
                     Asset profileAsset = dataMapItem.getDataMap().getAsset("profileImage");
                     Bitmap bitmap = loadBitmapFromAsset(profileAsset);
-                    Intent intent = new Intent(this, WearableListActivity.class);
+                    bitmap = Bitmap.createScaledBitmap(bitmap,(int)(bitmap.getWidth()*0.3), (int)(bitmap.getHeight()*0.3), true);
+                    Intent intent = new Intent(this, WatchViewStubActivity.class);
                     intent.putExtra(WatchViewStubActivity.BITMAP_EXTRA, bitmap);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
