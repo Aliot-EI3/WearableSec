@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">WEAR</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="btn_show_simple">Simple Activity</string>
+    <string name="btn_show_box">BoxInsert Activity</string>
+    <string name="btn_show_stub">WatchViewStub Activity</string>
+    <string name="btn_show_list">List Activity</string>
+    <string name="btn_show_grid">Grid Activity</string>
+    <string name="btn_send_message">Send Message</string>
+    <string name="btn_send_asset">The last button =)</string>
+</resources>

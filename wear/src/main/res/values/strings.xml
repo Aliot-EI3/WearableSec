@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">WEAR</string>
+    <string name="hello_round">Hello Round World!</string>
+    <string name="hello_square">Hello Square World!</string>
+
+    <!-- Box Insert-->
+    <string name="box_text_insert">Some text...text...text...</string>
+</resources>
