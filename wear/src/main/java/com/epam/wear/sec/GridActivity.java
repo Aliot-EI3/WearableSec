@@ -8,7 +8,7 @@ import com.epam.wear.sec.adapter.SampleGridPagerAdapter;
 
 
 /**
- * Created by Vladimir_Kharchenko on 5/8/2015.
+ * Created by Vladimir_Kharchenko on 5/8/2015.jgkuhkhkhkhkhk
  */
 public class GridActivity extends Activity {
 
